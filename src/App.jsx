@@ -1,33 +1,31 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { Button } from '@mui/material'
+import { Settings, Add } from '@mui/icons-material'
+import styled from '@emotion/styled';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const BlueButton = styled(Button)({
+    backgroundColor: 'skyblue',
+    color: '#888',
+    margin: 5,
+    '&:hover': {
+      backgroundColor: 'lightblue'
+    },
+    '&:disabled': {
+      backgroundColor: 'gray',
+      color: 'white',
+    },
+  })
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className='App'>
+      <Button variant='text'>Text</Button>
+      <Button startIcon={<Settings />} variant='contained' color='secondary' size='small'>Settings</Button>
+      <Button startIcon={<Add />} variant='contained' color='success' size='small'>Add post</Button>
+      <Button variant='outlined' disabled>Outlined</Button>
+      <BlueButton>Styled button</BlueButton>
     </div>
   )
 }
