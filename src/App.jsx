@@ -1,33 +1,26 @@
 import { useState } from 'react'
 import './App.css'
-import { Button } from '@mui/material'
+import { Box, Button, Container, Stack, Typography } from '@mui/material'
 import { Settings, Add } from '@mui/icons-material'
 import styled from '@emotion/styled';
+import Leftbar from './components/Leftbar'
+import Feed from './components/Feed'
+import Rightbar from './components/Rightbar'
+import Navbar from './components/Navbar';
 
 function App() {
-  const [count, setCount] = useState(0);
-  const BlueButton = styled(Button)({
-    backgroundColor: 'skyblue',
-    color: '#888',
-    margin: 5,
-    '&:hover': {
-      backgroundColor: 'lightblue'
-    },
-    '&:disabled': {
-      backgroundColor: 'gray',
-      color: 'white',
-    },
-  })
 
   return (
-    <div className='App'>
-      <Button variant='text'>Text</Button>
-      <Button startIcon={<Settings />} variant='contained' color='secondary' size='small'>Settings</Button>
-      <Button startIcon={<Add />} variant='contained' color='success' size='small'>Add post</Button>
-      <Button variant='outlined' disabled>Outlined</Button>
-      <BlueButton>Styled button</BlueButton>
-    </div>
+    <Box className='App'>
+      <Navbar />
+      <Stack direction='row' spacing={2}>
+        <Leftbar />
+        <Feed />
+        <Rightbar />
+
+      </Stack>
+    </Box>
   )
 }
-
+ 
 export default App
